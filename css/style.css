@@ -1083,6 +1083,29 @@ video {
   }
 }
 
+@media (min-width: 901px) {
+  .menu-background {
+    width: 190%; /* 100% plus die 16px Padding von links und rechts */
+    margin-left: -45%;        /* Zieht das Bild genau um das Padding nach links */
+    max-width: none;           /* Stellt sicher, dass keine andere Regel es begrenzt */
+  }
+}
+
+@media (min-width: 600px) and (max-width: 900px) {
+  .menu-background {
+    width: 250%; /* 100% plus die 16px Padding von links und rechts */
+    margin-left: -75%;        /* Zieht das Bild genau um das Padding nach links */
+    max-width: none;           /* Stellt sicher, dass keine andere Regel es begrenzt */
+  }
+}
+
+@media (max-width: 599px) {
+  .menu-background {
+    width: 400%; /* 100% plus die 16px Padding von links und rechts */
+    margin-left: -150%;        /* Zieht das Bild genau um das Padding nach links */
+    max-width: none;           /* Stellt sicher, dass keine andere Regel es begrenzt */
+  }
+}
 
 .image-block img {
   width: 100%;    /* Das Bild nutzt die volle Breite des Grids-Teils */
