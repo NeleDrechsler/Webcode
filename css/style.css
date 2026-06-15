@@ -847,14 +847,7 @@ video {
       }
 
       .menu-background {
-        width: 100vw;
-        position: relative;
-        left: 50%;
-        right: 50%;
-        margin-left: -50vw;
-        margin-right: -50vw;
-        max-width: none;
-        display: block;
+        width: 100%;
       }
 
       .img-about-me {
@@ -1376,4 +1369,10 @@ a.text-link:hover {
     display: block;            /* Verhindert störende Inline-Abstände */
     flex-shrink: 0;            /* Verhindert, dass Flexbox das Bild zusammenquetscht */
     object-fit: contain;       /* Garantiert, dass das gesamte Bild ohne Beschnitt reinpasst */
+}
+
+.menu-background-wrapper {
+  width: 100%;
+  overflow: hidden; /* Verhindert, dass das 400%-Bild die Seite breiter macht */
+  position: relative;
 }
