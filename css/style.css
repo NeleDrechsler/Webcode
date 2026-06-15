@@ -1,0 +1,1381 @@
+* {
+    text-decoration: none;
+}
+
+@charset UTF-8
+
+    html{
+      height: 100%
+    }
+
+    body {
+      margin: 0;
+      font-family: "semplicitapro", sans-serif;
+      font-weight: 300;
+      font-size: 1.25rem; /* statt 20pt */
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+}
+    
+    .top-bar {
+      background-color: #e6e6e6;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      z-index: 999;
+      position: sticky;
+      top: 0;
+}
+
+    a:visited {
+      color: black;
+    }
+
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    main {
+      display: block;
+      width: 100%;
+    }
+
+    .main-content{
+      flex: 1;
+    }
+
+    .layout {
+      margin: 0 auto;
+    }
+
+
+    .menu-content ul {
+      list-style-image: none;
+      list-style: none;
+      list-style-type: none;
+      padding: 0;
+      width: 100%;
+      text-align: left;
+      font-size: 20pt;
+      font-weight: 300;
+      font-family: "semplicitapro", sans-serif;
+      line-height: 40pt;
+    }
+
+    /* ========== XS (0–599px) ========== */
+      @media (max-width: 599px) {
+        .layout {
+          padding-left: 16px;
+          padding-right: 16px;
+          max-width: 100%;
+        }
+
+        .menu-content ul {
+          list-style-image: none;
+          list-style: none;
+          list-style-type: none;
+          width: 100%;
+          text-align: left;
+          font-size: 15pt;
+          line-height: 25pt;
+          font-weight: 500;
+        }
+
+        .menu-content {
+          padding-top: 13pt;
+        }
+      }
+
+    /* ========== SM (600–904px) ========== */
+      @media (min-width: 600px) and (max-width: 904px) {
+        .layout {
+          padding-left: 32px;
+          padding-right: 32px;
+          max-width: 100%;
+        }
+
+      }
+
+    /* ========== MD (905–1239px) ========== */
+      @media (min-width: 905px) and (max-width: 1239px) {
+        .layout {
+          max-width: 840px;
+          padding-left: 32pt;
+          padding-right: 32pt;
+        }
+      }
+
+    /* ========== LG (1240–1439px) ========== */
+      @media (min-width: 1240px) and (max-width: 1439px) {
+        .layout {
+          max-width: 100%;
+          padding-left: 200px;
+          padding-right: 200px;
+        }
+      }
+
+    /* ========== XL (1440+) ========== */
+      @media (min-width: 1440px) {
+        .layout {
+          max-width: 1040px;
+          padding-left: 200pt;
+          padding-right: 200pt;
+          margin: 0 auto;
+        }
+      }
+
+
+      .container,
+      .footer-container,
+      .vita-container,
+      .container-collaboration {
+        width: 100%;
+      }
+
+    .footer {
+      background-color: #e6e6e6;
+      font-family: "open sans", sans-serif;
+      font-size: 75%;
+      padding-top: 25pt;
+      padding-bottom: 25pt;
+      font-weight: 300; /* 300 steht meist für 'Light' */
+    }
+    
+    .footer-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: auto; 
+      flex-wrap: wrap;
+      gap: 0px;
+      justify-content: space-between; 
+      padding: 0 0px; 
+    }
+    
+    .footer-column {
+      flex: 1;
+      margin: 0px;
+    }
+    
+    .footer-column p {
+      line-height: 1.6;
+    }
+
+    
+    .footer-column ul {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .footer-column ul li {
+      margin-bottom: 10px;
+    }
+    
+    .footer-column a {
+      color: #002244;
+      text-decoration: none;
+    }
+    
+    .footer-column a:hover {
+      text-decoration: underline;
+    }
+
+    
+    /* === Responsive Design === */
+    @media (max-width: 768px) {
+      .footer-container {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    
+      .footer-column {
+        width: 100%;
+        margin-bottom: 20px;
+      }
+    }
+
+    .footer-column:first-child {
+      flex: 1;
+    }
+    
+    .footer-column:last-child {
+      flex: 0 0 auto; /* Prevent it from expanding */
+      max-width: 150px; /* Adjust this as needed */
+      text-align: left;
+    }
+    
+    .logo {
+      font-size: 1.2rem;
+      font-family: "semplicitapro", sans-serif;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+    
+    .menu-toggle {
+      width: 30px;
+      height: 17px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      cursor: pointer;
+    }
+    
+    .menu-toggle .bar {
+      height: 3px;
+      background-color: black;
+      border-radius: 3px;
+      transition: all 0.3s;
+      flex-shrink: 0;
+    }
+    
+    .menu-toggle.active .bar:first-child {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    
+    .menu-toggle.active .bar:last-child {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+    
+    .menu-toggle.active .bar:nth-child(2) {
+      opacity: 30;
+    }
+    
+    /* Menu overlay */
+    .menu-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      padding-top: 20pt;
+      height: 100%;
+      width: 100%;
+      background-color: rgba(255, 255, 255, 0.90); /* 30% opacity */
+      display: none;
+      justify-content: left;
+      align-items: left;
+      z-index: 3;
+    }
+    
+    .menu-overlay.show {
+      display: flex;
+    }
+
+    .sub-menu {
+      margin-left: 30pt;
+      font-size: 10pt;
+    }
+
+    
+    .menu-content li:hover {
+      color: #E84435;               /* Change text color to red on hover */
+      border-left: none;        /* Remove any blue line that might appear */
+      outline: none;            /* Remove browser focus outline */
+    }
+
+    .menu-content li::marker {
+      content: none;
+    }
+
+
+    .container {
+      display: flex;
+      /*max-width: 1200px;
+      margin: 50px auto;
+      */
+      font-family: "Open Sans Light";
+      align-items: center;
+    }
+
+    .text-section {
+      flex: 1;
+      color: #222;
+    }
+
+    .text-section h1 {
+      color: #E84435;
+      font-size: 70%;
+      margin-bottom: 20px;
+    }
+
+    .text-section p {
+      font-size: 100%;
+      line-height: 25pt;
+    }
+
+    .image-section {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 25pt;
+    }
+
+    .image-section img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+
+      .text-section, .image-section {
+        /*padding: 20px;*/
+      }
+
+    }
+
+    ul.privacy{
+      font-family: "Open Sans Light";
+      font-size: 15pt;
+    }
+
+
+  /* Schriftart für alle Listenpunkte auf der Datenschutzseite */
+.privacy ul li {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 300;
+    font-size: 12pt; /* Passt die Größe optional an deine Textgröße (80%) an */
+}
+
+  h1.title-privacy{
+  font-family: "open sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 15pt;
+  text-align: left;
+  line-height: 30pt;
+  -webkit-font-smoothing: antialiased;
+  }
+
+  h2 {
+    font-size: 15pt;
+  }
+
+  h3 {
+    font-size: 15pt;
+    font-family: "open sans", sans-serif;
+    font-weight: 300;
+  }
+
+  .content-text{
+    padding-left: 25pt;
+    padding-right: 25pt;
+  }
+
+  h2.subtitle-privacy{
+    font-family: "open sans", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-style: normal;
+    text-align: left;
+    margin-right: 20pt;
+    margin-top: 20pt;
+    }
+
+  .box {
+  padding-right: 20pt;
+  padding-bottom: 0;  /* Innenabstand nach unten entfernt, damit der Text nicht weggedrückt wird */
+  font-size: 16px;
+  line-height: 1.2;   /* Knappe Zeilenhöhe für den Fließtext */
+  font-family: "open sans", sans-serif;
+  font-weight: 300;
+}
+
+  .box-sub{
+  font-family: "open sans", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  }
+
+  h4.subsubsubtitle-privacy{
+    font-family: "open sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 70%;
+    text-align: left;
+    margin-right: 20pt;
+    line-height: 20pt;
+  }
+
+  .text-privacy{
+    font-family: "open sans", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 80%;
+    text-align: justify;
+    margin-right: 5pt;
+    line-height: 15pt;
+    overflow-wrap: break-word;
+    word-wrap: break-word; /* Fallback für ältere Browser */
+    }
+
+  p.text-legal{
+    font-family: "open sans", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 80%;
+    text-align: justify;
+    line-height: 6pt;
+    }
+
+
+  p.text-legal-center{
+    font-family: "open sans", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 80%;
+    text-align: justify;
+    margin-right: 5pt;
+    line-height: 15pt;
+    text-align: left;
+    overflow-wrap: break-word;
+    word-wrap: break-word; /* Fallback für ältere Browser */
+    }
+
+    .list-privacy{
+      font-family: "open sans", sans-serif;
+      font-weight: 300;
+      font-style: normal;
+      font-size: 80%;
+      text-align: left;
+      margin-right: 20pt;
+      line-height: 15pt;
+    }
+
+    p.text-about-me {
+      font-family: "Open Sans Light";
+      width: 100%;
+      margin: 5% auto 0 auto;
+      display: block;
+    
+    }
+
+    br {
+      line-height: 2pt;;
+    }
+
+    .container-vita{
+      text-align: left;
+    }
+
+    .container-collaboration{
+      text-align: left;
+    }
+    
+    
+    @media (max-width: 685px) {
+  .vita-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+}
+
+    .vita-logo {
+      width: 200pt;
+      display: flex;
+      align-items: left;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+      padding-left: pt;
+    }
+
+
+    .box {
+      padding-right: 20pt;
+      padding-bottom: 5pt;
+      font-size: 16px;
+    }
+
+    .box-top {
+      padding-right: 20pt;
+      padding-bottom: 4px; /* Ein klein wenig Abstand unter der Hauptüberschrift (Jobtitel) */
+      line-height: 1.2;
+      font-size: 20px;
+      padding-top: 0; 
+    }
+
+    .box-top-second {
+      padding-right: 20pt;
+      padding-bottom: 5pt;
+      font-size: 20px;
+      padding-top: 0pt;
+    }
+
+    
+
+    .box-sub {
+      font-size: 16px;
+      color:#222;
+      margin-top: 4px;
+    }
+
+    /* Responsive layout: stack vertically on small screens */
+    @media (max-width: 600px) {
+      .container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .text {
+        width: 100%;
+      }
+
+      .box {
+        width: 80%;
+      }
+    }
+
+    .skills-container {
+      /*
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem; 
+      justify-content: flex-start;
+      width: 100%;
+      margin: 0;
+      */
+      display: grid;
+      grid-template-rows: repeat(3, auto); /* 3 Zeilen */
+      grid-auto-flow: column;              /* ⬅️ wichtig */
+      gap: 2rem;
+    }
+
+@media (min-width: 600px) and (max-width: 900px) {
+  .skills-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-flow: unset; /* wichtig */
+  }
+
+  /* Spalte 1 */
+  .skill-group:nth-child(1) { grid-column: 1; grid-row: 1; } /* Photography */
+  .skill-group:nth-child(2) { grid-column: 1; grid-row: 2; } /* Videocut */
+  .skill-group:nth-child(5) { grid-column: 1; grid-row: 3; } /* CAD */
+  .skill-group:nth-child(3) { grid-column: 1; grid-row: 4; } /* CMS */
+
+  /* Spalte 2 */
+  .skill-group:nth-child(4) { grid-column: 2; grid-row: 1; } /* Graphic */
+  .skill-group:nth-child(7) { grid-column: 2; grid-row: 2; } /* UI/UX */
+  .skill-group:nth-child(6) { grid-column: 2; grid-row: 3; } /* Webcoding */
+}
+
+
+@media (max-width: 600px) {
+  .skills-container {
+    display: flex;           /* statt grid */
+    flex-direction: column;  /* alles untereinander */
+    gap: 0rem;
+  }
+
+    div.skill-group {
+      flex: 1 1 120px;
+    }
+
+  /* Reihenfolge definieren */
+  .skill-group:nth-child(1) { order: 1; } /* Photography */
+  .skill-group:nth-child(4) { order: 2; } /* Graphic Design */
+  .skill-group:nth-child(2) { order: 3; } /* Videocut */
+  .skill-group:nth-child(7) { order: 4; } /* UI/UX */
+  .skill-group:nth-child(5) { order: 5; } /* CAD */
+  .skill-group:nth-child(3) { order: 6; } /* CMS */
+  .skill-group:nth-child(6) { order: 7; } /* Webcoding */
+}
+    
+    .skill-group {
+      display: flex;
+      flex-direction: column; /* Subtitle oben, Icons darunter */
+      align-items: flex-start;  /* <- statt center */
+      /*text-align: left;         /* <- statt center */
+      padding-right: 10%;
+      margin-left: 0;
+      flex: 1 1 200px;
+      margin-bottom: 0;
+      padding-right: 0;
+    }
+
+    .icon-row {
+      align-items: left;
+      display: flex;
+      gap: 0.5rem;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+    }
+
+    .icon-row-sm {
+      align-items: left;
+      display: flex;
+      gap: 20px;
+    }
+    
+    
+      .skill-icon {
+        width: 40px;
+        height: auto;
+        /*margin: 0 5px;*/
+        display: inline-block;
+        transition: all 0.3s ease;
+        vertical-align: middle;  
+      }
+
+      .photoshop-icon:hover {
+        content: url("../icons/photoshop_colour.png");
+      }
+
+      .lightroom-icon:hover {
+        content: url("../icons/lightroom_colour.png");
+      }
+
+      .illustrator-icon:hover {
+        content: url("../icons/illustrator_colour.png");
+      }
+
+      .indesign-icon:hover {
+        content: url("../icons/indesign_colour.png");
+      }
+
+      .animate-icon:hover {
+        content: url("../icons/animate_colour.png");
+      }
+
+      .xd-icon:hover {
+        content: url("../icons/xd_colour.png");
+      }
+
+      .figma-icon:hover {
+        content: url("../icons/figma_colour.png");
+      }
+
+      .premiere-icon:hover {
+        content: url("../icons/premiere_colour.png");
+      }
+
+      .davinci-icon:hover {
+        content: url("../icons/davinci_colour.png");
+      }
+
+      .fusion-icon:hover {
+        content: url("../icons/fusion_colour.png");
+      }
+
+      .rhino-icon:hover {
+        content: url("../icons/rhino_colour.png");
+      }
+
+      .wordpress-icon:hover {
+        content: url("../icons/wordpress_colour.png");
+      }
+
+      .contao-icon:hover {
+        content: url("../icons/contao_colour.png");
+      }
+
+      .typo3-icon:hover {
+        content: url("../icons/typo3_colour.png");
+      }
+
+      .html-icon:hover {
+        content: url("../icons/html_colour.png");
+      }
+
+      .css-icon:hover {
+        content: url("../icons/css_colour.png");
+      }
+
+      .php-icon:hover {
+        content: url("../icons/php_colour.png");
+      }
+
+      .solidworks-icon:hover {
+        content: url("../icons/solidworks_colour.png");
+      }
+
+      .html-icon{
+        height: 40pt;
+        width: 40pt;
+        margin-left: -5px;
+      }
+
+      .css-icon{
+        height: 40pt;
+      }
+
+      .contao-icon{
+        margin-top: 2.5pt;
+      }
+
+      .typo3-icon{
+        margin-top: 2.5pt;
+      }
+
+
+      .php-icon{
+        height: 40pt;
+        width: 40pt;
+        margin-top: 8%;
+      }
+
+/* ============================================================
+   PROJEKT GRID - FINALE RESPONSIVE LOGIK (Abstand 1.5x erhöht)
+   ============================================================ */
+
+/* 1. Basis: Smartphone (Alles sauber untereinander in 1 Spalte) */
+.project-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 90px; /* Erhöht von 40px auf 60px (1.5x) */
+  margin-top: 80px;
+  width: 100%;
+}
+
+.project-column {
+  display: flex;
+  flex-direction: column;
+  gap: 110px; /* Erhöht von 40px auf 60px (1.5x) für den vertikalen Abstand */
+  width: 100%;
+}
+
+.project-item {
+  width: 100%;
+}
+
+/* 2. Tablet & Desktop (Ab 600px: 2 Spalten nebeneinander) */
+@media (min-width: 600px) {
+  .project-grid {
+    flex-direction: row;
+    align-items: flex-start; 
+    column-gap: 40px; /* Horizontaler Abstand bleibt bei stabilen 40px */
+    gap: 0; /* Setzt den globalen Flex-Gap zurück */
+  }
+
+  .project-column {
+    flex: 1; 
+  }
+
+  /* Der visuelle Versatz nach unten für die rechte Spalte */
+  .project-column.column-offset {
+    margin-top: 180px;
+  }
+}
+
+/* 3. Desktop Optimierung (Ab 1025px: Mehr Platz) */
+@media (min-width: 1025px) {
+  .project-grid {
+    column-gap: 60px; /* Horizontaler Abstand auf großen Screens */
+  }
+  
+  .project-column.column-offset {
+    margin-top: 200px; 
+  }
+}
+
+/* 4. Image-Wrapper & Hover-Logik */
+.img-wrapper {
+    position: relative;
+    display: block;
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+.img {
+    width: 100%;
+    display: block;
+    transition: opacity 0.5s ease;
+}
+
+.img.base { position: relative; z-index: 1; opacity: 1; }
+.img.hover { position: absolute; top: 0; left: 0; z-index: 2; opacity: 0; }
+
+.img-wrapper:hover .img.hover { opacity: 1; }
+.img-wrapper:hover .img.base { opacity: 0; }
+
+/* 3. Korrektur des Image-Wrappers */
+.img-wrapper {
+    position: relative;
+    display: block;
+    width: 100%; /* Nimmt die volle Breite der Grid-Spalte ein */
+    margin-bottom: 40px;
+}
+
+/* 4. Hover-Logik stabilisieren */
+.img {
+    width: 100%;
+    display: block;
+    transition: opacity 0.5s ease;
+}
+
+video {
+    width: 100%;
+    height: 100%;
+    display: block;
+    background-color: #000;
+}
+
+/* Das Basis-Bild bestimmt nun die Höhe des Containers */
+.img.base {
+    position: relative; 
+    z-index: 1;
+    opacity: 1;
+}
+
+/* Das Hover-Bild liegt absolut darüber */
+.img.hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    opacity: 0;
+}
+
+.img-wrapper:hover .img.hover {
+    opacity: 1;
+}
+
+      /* Standardbild sichtbar */
+      .img.base {
+        opacity: 1;
+        z-index: 1;
+      }
+
+      /* Hoverbild unsichtbar */
+      .img.hover {
+        opacity: 0;
+        z-index: 2;
+      }
+
+      /* Beim Hover: überblenden */
+      .img-wrapper:hover .img.hover {
+        opacity: 1;
+      }
+
+      .img-wrapper:hover .img.base {
+        opacity: 0;
+      }
+
+      .menu-background {
+        width: 100%;
+      }
+
+      .img-about-me {
+        width: 100%;
+      }
+
+      .about-me {
+        margin-top: 35pt;
+      }
+
+
+
+
+    .socialmedia-icon {
+      width: 30px;
+      height: 30px;
+      display: inline-block;   /* wichtig: blockförmig machen */
+      margin: 0 px;          /* gleiche Abstände links und rechts */
+      transition: all 0.3s ease;
+      vertical-align: middle;  /* sorgt für sauberes Ausrichten */
+    }
+
+    /* Instagram Hover-Effekt */
+    .instagram-icon:hover {
+      content: url("../icons/instagram_colour.png");
+    }
+
+    .linkedin-icon:hover {
+      content: url("../icons/linkedin_colour.png");
+    }
+
+    h3.title-skills{
+      font-family: "semplicitapro", sans-serif;
+      font-weight: 300;
+      color: #777;
+      margin-bottom: 20px;
+    }
+
+    .subtitle-skills{
+      font-family: "Open Sans";
+      font-weight: 300;
+      color: #777;
+      text-align: left;
+      font-size: 80%;
+      line-height: 10pt;
+      padding: 0;
+    }
+
+    a:link {
+      color: black;
+    }
+
+    a:hover {
+      color: #E84435;
+    }
+
+/* -------------------------------- PROJECTS SECTION -------------------------------- */
+
+.project-hero {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr; /* Text links, Bild rechts */
+  gap: 40px;
+  margin-top: 0px;
+  align-items: start; /* Zentriert Text und Bild vertikal zueinander */
+}
+
+.project-title {
+  font-family: "semplicitapro", sans-serif;
+  font-weight: 300;
+  color: #777;
+  margin-bottom: 20px;
+}
+
+.project-teaser {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 300;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #555;
+}
+
+/* --- HAUPTBILD (Hero Image) Stabilisierung --- */
+.hero-image {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: #f0f0f0; /* Gleicher Hintergrund wie unten für Konsistenz */
+  aspect-ratio: 12 / 7;      /* Gleiches Seitenverhältnis wie die Galerie-Boxen */
+  overflow: hidden;
+}
+
+.hero-image img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain; /* Sorgt dafür, dass das Bild nicht verzerrt und komplett sichtbar bleibt */
+  display: block;
+}
+
+/* --- GALERIE (Kleine Bilder) --- */
+.project-gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.gallery-item {
+  position: relative;
+  background-color: #f0f0f0;
+  aspect-ratio: 1 / 1,414;   
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.gallery-item img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.image-label {
+  position: absolute;
+  color: #777;
+  font-size: 0.9rem;
+  pointer-events: none;
+}
+
+/* --- ACCORDION (Stabil & ohne Springen) --- */
+
+.more-info-section {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.separator {
+  border: none;
+  border-top: 1px solid #ccc;
+  margin-bottom: 15px;
+}
+
+.info-accordion summary {
+  list-style: none;
+  cursor: pointer;
+  outline: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.info-accordion summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Der Text-Container */
+.summary-text {
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 300;
+  color: #777;
+  display: block;
+  min-height: 1.2rem; /* Reserviert Platz, verhindert Hüpfen */
+}
+
+/* Wenn offen: "more" verschwinden lassen */
+.info-accordion[open] .summary-text {
+  font-size: 0;
+}
+
+/* Wenn offen: "less" einblenden */
+.info-accordion[open] .summary-text::before {
+  content: "less information";
+  font-size: 0.9rem;
+  display: block;
+}
+
+/* Der Pfeil */
+.arrow-svg {
+  display: block;
+  margin: 10px auto;
+  color: #ccc;
+  /* Zeigt im geschlossenen Zustand nach UNTEN */
+  transform: rotate(0deg); 
+  transition: transform 0.4s ease;
+  transform-origin: center;
+}
+
+/* Wenn offen: Pfeil dreht sich nach OBEN */
+.info-accordion[open] .arrow-svg {
+  transform: rotate(180deg);
+}
+
+.expanded-content {
+  margin-top: 40px;
+  text-align: left;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+/* Responsive Anpassung */
+@media (max-width: 768px) {
+  .project-hero {
+    display: flex;
+    flex-direction: column;
+  }
+  .project-hero .hero-text { order: 1; }
+  .project-hero .hero-image { order: 2; }
+  
+  .project-gallery, .content-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .content-grid.reverse-on-mobile .text-block {
+    order: 1; /* Der Text wird als Erstes sortiert */
+  }
+
+  .content-grid.reverse-on-mobile .image-block {
+    order: 2; /* Das Bild wird danach sortiert */
+  }
+}
+
+@media (min-width: 901px) {
+  .menu-background {
+    width: 190%; /* 100% plus die 16px Padding von links und rechts */
+    margin-left: -45%;        /* Zieht das Bild genau um das Padding nach links */
+    max-width: none;           /* Stellt sicher, dass keine andere Regel es begrenzt */
+  }
+}
+
+@media (min-width: 600px) and (max-width: 900px) {
+  .menu-background {
+    width: 250%; /* 100% plus die 16px Padding von links und rechts */
+    margin-left: -75%;        /* Zieht das Bild genau um das Padding nach links */
+    max-width: none;           /* Stellt sicher, dass keine andere Regel es begrenzt */
+  }
+}
+
+@media (max-width: 599px) {
+  .menu-background {
+    width: 400%; /* 100% plus die 16px Padding von links und rechts */
+    margin-left: -150%;        /* Zieht das Bild genau um das Padding nach links */
+    max-width: none;           /* Stellt sicher, dass keine andere Regel es begrenzt */
+  }
+}
+
+.image-block img {
+  width: 100%;    /* Das Bild nutzt die volle Breite des Grids-Teils */
+  height: auto;   /* Die Proportionen bleiben erhalten */
+  display: block; /* Verhindert kleine Abstände unter dem Bild */
+}
+
+/* Container für die gesamte Galerie */
+.photography-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Abstand zwischen den Reihen */
+  margin-top: 40px;
+  margin-bottom: 80px;
+}
+
+/* Eine Reihe besteht aus zwei Hauptspalten */
+.photo-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Zwei gleich große Spalten */
+  gap: 20px; /* Abstand zwischen links und rechts */
+}
+
+/* Die Gruppe mit den zwei Querformaten untereinander */
+.landscape-stack {
+  display: grid;
+  grid-template-rows: 1fr 1fr; /* Zwei gleich große Zeilen */
+  gap: 20px;
+}
+
+.landscape-stack img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Bild füllt den Platz aus ohne zu verzerren */
+  display: block;
+}
+
+/* Die Box für das Hochformat */
+.portrait-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Responsive Anpassung: Auf dem Handy alles untereinander */
+@media (max-width: 768px) {
+  /* 1. Hauptcontainer zwingen, die Abstände sauber einzuhalten */
+  .photography-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px !important; 
+  }
+
+  /* 2. Reihen komplett in einfache vertikale Spalten umwandeln */
+  .photo-row, .photo-row.reverse {
+    display: flex;
+    flex-direction: column;
+    gap: 20px !important;
+    height: auto !important; /* Verhindert Höhen-Berechnungsfehler */
+  }
+
+  /* 3. Den verschachtelten Grid-Stack auflösen zu sauberem Flex-Fluss */
+  .landscape-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 20px !important;
+    height: auto !important;
+  }
+  
+  /* 4. Bild-Container stabilisieren */
+  .photo-item {
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  /* 5. Proportionen sauber erzwingen, damit nichts kollabiert */
+  .landscape-stack .photo-item {
+    aspect-ratio: 3 / 2; /* Festes Querformat für die Stack-Bilder mobil */
+  }
+
+  .portrait-box {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 2 / 3; /* Festes Hochformat mobil */
+  }
+
+  .portrait-box .photo-item {
+    height: 100% !important;
+  }
+}
+
+/* Der neue Container für Bild + Overlay */
+.photo-item {
+  position: relative; /* Wichtig, damit das Overlay im Bild bleibt */
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.photo-item img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* Das weiße Overlay */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.8); /* Weiß mit 80% Opacity */
+  display: flex;
+  justify-content: center; /* Zentriert Text horizontal */
+  align-items: center;     /* Zentriert Text vertikal */
+  opacity: 0;              /* Standardmäßig unsichtbar */
+  transition: opacity 0.3s ease; /* Sanftes Einblenden */
+  cursor: pointer;
+}
+
+/* Overlay einblenden bei Hover */
+.photo-item:hover .overlay {
+  opacity: 1;
+}
+
+/* Styling für den Text im Overlay */
+.overlay-text {
+  text-align: center;
+  color: #000;
+  font-family: "Open Sans Light", sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  padding: 10px;
+}
+
+.overlay-text strong {
+  display: block;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+
+.pdf-thumb {
+  border: 1px solid #ccc;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+}
+
+html, body {
+    max-width: 100%;
+    overflow-x: clip;
+    position: relative;
+}
+
+a.text-link {
+  color: #E84435;
+}
+
+a.text-link:hover {
+  color: black;
+}
+
+.technical-drawing {
+  border: solid 0.5pt #bbbbbb;
+}
+
+/* Styling für den Zurück-Pfeil im Main-Bereich */
+.back-btn {
+  font-family: "semplicitapro", sans-serif;
+  font-size: 1.5rem; /* Etwas größer, damit er gut klickbar ist */
+  font-weight: 900;
+  color: #777;
+  display: inline-block;
+  margin-top: 9pt;
+  transition: color 0.3s ease;
+  cursor: pointer;
+}
+
+/* Hover-Effekt in deinem gewohnten Rot */
+.back-btn:hover {
+  color: #E84435;
+}
+
+/* ============================================================
+   SPEZIELLES 3ER-GRID FÜR PROJEKTSEITEN (40px Raster)
+   ============================================================ */
+
+/* Haupt-Reihe: Setzt den Abstand nach oben und zwischen den Spalten auf 40px */
+.photo-row-project {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 40px; 
+}
+
+/* Rechter Stapel: Setzt den Abstand zwischen den Querformaten auf 40px */
+.landscape-stack-project {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    gap: 40px;
+}
+
+/* Identischer Bild-Schnitt wie bei deinem Foto-Grid */
+.photo-row-project img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Responsive Anpassung: Auf dem Smartphone alles untereinander fließen lassen */
+@media (max-width: 768px) {
+    .photo-row-project {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+    }
+}
+
+.trekanter {
+  margin-bottom: 20pt;
+}
+
+.photo-title {
+  font-weight: 400;
+  font-family: "Open Sans";
+}
+
+.camera-type {
+  font-weight: 300;
+  font-family: "Open Sans";
+}
+
+/* ============================================================
+   VITA LAYOUT (Bereinigte & zusammengefasste Version)
+   ============================================================ */
+
+.vita-container {
+  display: flex;
+  align-items: flex-start; /* Richtet die Oberkanten von Logo und Text exakt aus */
+  gap: 45px;
+  max-width: 1200px;
+  width: 100%;
+  padding-top: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex-grow: 1;
+  min-width: 200px;
+  margin-top: 0;      /* Absolut wichtig: Kein Abstand nach oben! */
+  margin-bottom: 10pt;
+  line-height: 1.4;   /* Verhindert, dass eine zu große Zeilenhöhe den Text drückt */
+  margin-left: 0pt;
+}
+
+.vita-logo {
+  width: 200pt;
+  display: block;     /* "block" verhindert den kleinen Standard-Inline-Abstand unter Bildern */
+  flex-shrink: 0;
+}
