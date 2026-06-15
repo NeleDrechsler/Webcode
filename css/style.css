@@ -475,17 +475,6 @@
 
 }
 
-    .vita-logo {
-      width: 200pt;
-      display: flex;
-      align-items: left;
-      justify-content: center;
-      font-size: 18px;
-      flex-shrink: 0;
-      padding-left: pt;
-    }
-
-
     .box {
       padding-right: 20pt;
       padding-bottom: 5pt;
@@ -1375,7 +1364,9 @@ a.text-link:hover {
 }
 
 .vita-logo {
-  width: 200pt;
-  display: block;     /* "block" verhindert den kleinen Standard-Inline-Abstand unter Bildern */
-  flex-shrink: 0;
+    width: 200pt;
+    height: auto !important;   /* Erzwingt die korrekte, proportionale Höhe */
+    display: block;            /* Verhindert störende Inline-Abstände */
+    flex-shrink: 0;            /* Verhindert, dass Flexbox das Bild zusammenquetscht */
+    object-fit: contain;       /* Garantiert, dass das gesamte Bild ohne Beschnitt reinpasst */
 }
