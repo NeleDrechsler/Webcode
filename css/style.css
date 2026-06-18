@@ -676,6 +676,10 @@
         content: url("https://res.cloudinary.com/dequrpiwt/image/upload/v1781535548/css_colour_kycb16.png");
       }
 
+      .js-icon:hover {
+        content: url("https://res.cloudinary.com/dequrpiwt/image/upload/v1781794385/javacript_colour_glnc4p.png");
+      }
+
       .php-icon:hover {
         content: url("https://res.cloudinary.com/dequrpiwt/image/upload/v1781535647/php_colour_vl2rlg.png");
       }
@@ -692,6 +696,12 @@
 
       .css-icon{
         height: 40pt;
+      }
+
+      .js-icon{
+        height: 40pt;
+        margin-left: 5.5pt;
+        margin-right: 2pt;
       }
 
       .contao-icon{
