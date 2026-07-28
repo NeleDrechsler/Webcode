@@ -632,6 +632,10 @@
         content: url("https://res.cloudinary.com/dequrpiwt/image/upload/v1781535542/animate_colour_hiatoj.png");
       }
 
+      .affinity-icon:hover {
+        content: url("https://res.cloudinary.com/dequrpiwt/image/upload/v1785241545/affinity_colour_hhataq.jpg");
+      }
+
       .xd-icon:hover {
         content: url("https://res.cloudinary.com/dequrpiwt/image/upload/v1781535693/xd_colour_unwo7t.png");
       }
